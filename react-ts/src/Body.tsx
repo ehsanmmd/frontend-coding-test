@@ -1,6 +1,6 @@
-import { memo, useContext } from "react";
+import { memo, useCallback } from "react";
 import styled from "styled-components";
-import CounterContext from "./store/counter-context";
+import { useCounterContext } from "./store/counter-context";
 
 const BodyArea = styled.div`
   background: #444;
@@ -12,25 +12,34 @@ const BodyArea = styled.div`
   border-radius: 10px;
 `;
 
-const CounterText = styled.h1`
-  color: #ccc;
-  font-size: 5rem;
-`;
-
 const CounterButton = styled.button`
   color: #888;
   height: 5rem;
   width: 10rem;
   font-size: 2rem;
+  border-radius: 10px;
 `;
 
 function Body() {
-  const counterCtx = useContext(CounterContext);
+  const { setCounter } = useCounterContext();
 
-  const buttonClickHandler = () => {};
+  const clickHandler = useCallback(() => {
+    const intervalId = setInterval(() => {
+      console.log("timer");
+      setCounter((counter: number) => {
+        if (counter > 0) {
+          return counter - 1;
+        } else {
+          clearInterval(intervalId);
+          return 0;
+        }
+      });
+    }, 1000);
+  }, []);
+
   return (
     <BodyArea>
-      <CounterButton onClick={buttonClickHandler}>Start</CounterButton>
+      <CounterButton onClick={clickHandler}>Start</CounterButton>
     </BodyArea>
   );
 }

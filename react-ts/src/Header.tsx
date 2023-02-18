@@ -1,6 +1,5 @@
-import { memo, useContext } from "react";
 import styled from "styled-components";
-import CounterContext from "./store/counter-context";
+import { useCounterContext } from "./store/counter-context";
 
 const HeaderArea = styled.div`
   margin: 0;
@@ -18,14 +17,15 @@ const CounterText = styled.h1`
 `;
 
 function Header() {
-  const counterCtx = useContext(CounterContext);
+  const { counter } = useCounterContext();
+
   return (
     <>
       <HeaderArea>
-        <CounterText>{counterCtx?.counter}</CounterText>
+        <CounterText>{counter}</CounterText>
       </HeaderArea>
     </>
   );
 }
 
-export default memo(Header);
+export default Header;
