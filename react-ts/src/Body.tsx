@@ -3,8 +3,9 @@ import styled from "styled-components";
 import { useCounterContext } from "./store/counter-context";
 
 const BodyArea = styled.div`
+  display:inline-block;
   background: #444;
-  height: 80vh;
+  height: 60vh;
   margin: 1rem 0 1rem;
   display: flex;
   justify-content: center;
@@ -14,10 +15,11 @@ const BodyArea = styled.div`
 
 const CounterButton = styled.button`
   color: #888;
-  height: 5rem;
-  width: 10rem;
-  font-size: 2rem;
+  height: 100px;
+  width: 50%;
+  font-size: 5rem;
   border-radius: 10px;
+  display: inline;
 `;
 
 function Body() {
@@ -25,7 +27,6 @@ function Body() {
 
   const clickHandler = useCallback(() => {
     const intervalId = setInterval(() => {
-      console.log("timer");
       setCounter((counter: number) => {
         if (counter > 0) {
           return counter - 1;

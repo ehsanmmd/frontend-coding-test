@@ -4,6 +4,7 @@ import GlobalStyles from "./globalStyles";
 import { CounterProvider } from "./store/counter-context";
 import Header from "./Header";
 import Body from "./Body";
+import Sidebar from "./Sidebar";
 
 const Title = styled.h1`
   color: #666;
