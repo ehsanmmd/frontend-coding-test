@@ -9,8 +9,8 @@ function App() {
     <>
       <GlobalStyles />
       <CounterProvider>
-          <Header />
-          <Body />
+        <Header />
+        <Body />
       </CounterProvider>
     </>
   );
