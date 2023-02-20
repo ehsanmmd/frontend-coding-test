@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { memo } from "react";
 import styled from "styled-components";
 
 const Burger = styled.div`
@@ -23,12 +23,12 @@ const Bar = styled.span`
   background-color: #888;
 `;
 
-function Hamburger(props:{onClick:()=>void}) {
+function Hamburger(props: { onClick: () => void }) {
   return (
     <Burger onClick={props.onClick}>
-        <Bar></Bar>
-        <Bar></Bar>
-        <Bar></Bar>
+      <Bar></Bar>
+      <Bar></Bar>
+      <Bar></Bar>
     </Burger>
   );
 }

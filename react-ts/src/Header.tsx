@@ -20,7 +20,7 @@ const CounterText = styled.h1`
   font-size: 10rem;
 `;
 
-function Header() {
+function Header(): JSX.Element {
   const { counter } = useCounterContext();
 
   const [hamburgerStatus, setHamburgerStatus] = useState<boolean>(false);

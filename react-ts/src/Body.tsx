@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useCounterContext } from "./store/counter-context";
 
 const BodyArea = styled.div`
-  display:inline-block;
+  display: inline-block;
   background: #444;
   height: 60vh;
   margin: 1rem 0 1rem;
@@ -36,7 +36,7 @@ function Body() {
         }
       });
     }, 1000);
-  }, []);
+  }, [setCounter]);
 
   return (
     <BodyArea>

@@ -1,15 +1,14 @@
 import React, { useState, useContext } from "react";
-import { ReactNode } from "react";
 
 export interface ICounterContext {
   counter: number;
-  setCounter(value: any): void;
+  // setCounter(value: any): void;
+  setCounter(value: (counter: number) => number): void;
 }
 
-type MyProps = {
-  //   name: "My";
-  children: ReactNode;
-};
+interface MyProps {
+  children: JSX.Element | JSX.Element[];
+}
 
 const CounterContext = React.createContext<ICounterContext | undefined>(
   undefined
@@ -26,7 +25,7 @@ const useCounterContext = (): ICounterContext => {
   return context;
 };
 
-const CounterProvider = (props: MyProps) => {
+const CounterProvider = (props: MyProps): JSX.Element => {
   const [counter, setCounter] = useState<number>(15);
 
   const CounterContextValue: ICounterContext = {
